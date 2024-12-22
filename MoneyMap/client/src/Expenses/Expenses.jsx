@@ -20,7 +20,7 @@ export default function Expenses() {
 
   const fetchExpenses = async () => {
     try {
-      const res = await axios.get("http://localhost:5050/api/v3/expenses");
+      const res = await axios.get("https://moneymap-personal-finance-tracker-4.onrender.com/api/v3/expenses");
       if (res.data && res.data.expenses) {
         setExpenses(res.data.expenses);
         calculateTotal(res.data.expenses)
@@ -43,7 +43,7 @@ export default function Expenses() {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:5050/api/v3/expenses", data)
+      const res = await axios.post("https://moneymap-personal-finance-tracker-4.onrender.com/api/v3/expenses", data)
       if (res.data) {
         toast.success(res?.data?.message, { autoClose: 1000, position: "top-center" })
         fetchExpenses()

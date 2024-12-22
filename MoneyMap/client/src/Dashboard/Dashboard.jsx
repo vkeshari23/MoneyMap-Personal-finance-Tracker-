@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Layout from "../layout/Layout";
 import axios from "axios";
+import './dash.css'
 
 export default function Dashboard() {
   const [totalIncome, setTotalIncome] = useState(0)
@@ -11,7 +12,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchTotalIncome = async () => {
       try {
-        const res = await axios.get("http://localhost:5050/api/v2/income")
+        const res = await axios.get("https://moneymap-personal-finance-tracker-4.onrender.com/api/v2/income")
         if (res.data && res.data.data) {
           let total = 0;
           res.data.data.forEach(income => {
@@ -26,7 +27,7 @@ export default function Dashboard() {
 
     const fetchTotalExpenses = async () => {
       try {
-        const res = await axios.get("http://localhost:5050/api/v3/expenses");
+        const res = await axios.get("https://moneymap-personal-finance-tracker-4.onrender.com/api/v3/expenses");
         if(res.data && res.data.expenses) {
           let total = 0;
           res.data.expenses.forEach(expense => {
@@ -49,6 +50,7 @@ export default function Dashboard() {
 
   return (
     <Layout>
+      <div className="abcd">
       <div className="row">
         {/* remaining balance card */}
         <div className="col-sm-12 mb-3">
@@ -84,6 +86,8 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+      </div>
+
       </div>
     </Layout>
   );

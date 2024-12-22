@@ -18,7 +18,7 @@ export default function Income() {
 
   const fetchIncome = async () => {
     try {
-      const res = await axios.get("http://localhost:5050/api/v2/income")
+      const res = await axios.get("https://moneymap-personal-finance-tracker-4.onrender.com/api/v2/income")
       if (res.data && res.data.data) {
         setIncomeList(res.data.data)
         calculateTotal(res.data.data)
@@ -42,7 +42,7 @@ export default function Income() {
     }
 
     try {
-      const res = await axios.post("http://localhost:5050/api/v2/income", data);
+      const res = await axios.post("https://moneymap-personal-finance-tracker-4.onrender.com/api/v2/income", data);
       if(res.data){
         toast.success(res?.data?.message,{autoClose:1000,position:"top-center"});
         fetchIncome()

@@ -23,7 +23,7 @@ export default function Login() {
     }
 
     try {
-      const res = await axios.post(`http://localhost:5050/api/v1/login`,user)
+      const res = await axios.post(`https://moneymap-personal-finance-tracker-4.onrender.com/api/v1/login`,user)
       if(res?.data?.success){
         toast.success(res.data.message, { autoClose: 1000, position: "top-center" })
         setAuth({ user: res.data.user, token: res.data.token })

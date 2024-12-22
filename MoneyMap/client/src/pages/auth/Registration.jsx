@@ -22,7 +22,7 @@ export default function Registeration() {
     e.preventDefault()
     try {
       // console.log(data);
-     const res = await axios.post(`http://localhost:5050/api/v1/register`,data)
+     const res = await axios.post(`https://moneymap-personal-finance-tracker-4.onrender.com/api/v1/register`,data)
      if(res?.data)
       {
         toast.success(res?.data?.message,{autoClose:1000,position:"top-center"})
